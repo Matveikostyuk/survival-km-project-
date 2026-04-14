@@ -1,76 +1,41 @@
 # Survival Analysis in R: Kaplan–Meier & Cox Regression
 
 ## Overview
-This project demonstrates a full survival analysis workflow applied to clinical lung cancer data using R. The analysis includes Kaplan–Meier survival estimation, group comparison using the log-rank test, and multivariable modeling with Cox proportional hazards regression.
+This project demonstrates a survival analysis workflow applied to clinical lung cancer data using R. The analysis includes Kaplan–Meier survival estimation, log-rank testing, and Cox proportional hazards modeling.
 
-The goal of this project is to showcase applied biostatistics skills relevant to clinical and translational research, particularly in oncology.
+This project is designed to showcase applied biostatistics skills relevant to oncology and translational research.
 
 ---
 
 ## Dataset
-The analysis uses the built-in `lung` dataset from the `survival` R package. This dataset contains clinical and survival information for patients with advanced lung cancer.
-
-Key variables include:
-- Survival time (days)
-- Event status (death vs censored)
-- Age
-- Sex
-- ECOG performance status
+The analysis uses the built-in `lung` dataset from the `survival` package, which contains clinical and survival data for patients with lung cancer.
 
 ---
 
 ## Methods
-
-### 1. Data preprocessing
-- Removal of missing values
-- Conversion of survival status into a binary event indicator (1 = death, 0 = censored)
-
-### 2. Kaplan–Meier survival analysis
-- Estimation of overall survival probability
-- Visualization of survival curves with confidence intervals
-- Inclusion of risk tables
-
-### 3. Stratified survival analysis
-- Comparison of survival between male and female patients
-- Visualization of group-specific survival curves
-
-### 4. Log-rank test
-- Statistical comparison of survival distributions between groups
-
-### 5. Cox proportional hazards model
-- Multivariable analysis including:
-  - Age
-  - Sex
-  - ECOG performance status
-- Estimation of hazard ratios (HR) and confidence intervals
+- Kaplan–Meier survival analysis
+- Group comparison by sex
+- Log-rank test
+- Cox proportional hazards model
 
 ---
 
-## Results Summary
-- Kaplan–Meier curves demonstrate the decline in survival probability over time
-- Differences in survival between sex groups are assessed using the log-rank test
-- Cox regression identifies clinical variables associated with increased hazard of death
-- Findings are consistent with known prognostic factors in oncology
+## Results
+
+Kaplan–Meier analysis demonstrated a difference in survival between male and female patients, with females showing improved survival probability over time.
+
+The log-rank test indicated that this difference was statistically significant (p = 0.014).
+
+In the Cox proportional hazards model, increasing age and worse ECOG performance status were associated with higher hazard of death, consistent with established clinical prognostic factors.
 
 ---
 
-## Output
-- Kaplan–Meier survival plots (overall and stratified)
-- Log-rank test results
-- Cox model summary (hazard ratios, p-values)
-- Exported survival plot: `km_sex_plot.png`
-
 ---
 
-## Tools and Technologies
+## Tools
 - R
-- survival package
-- survminer package
+- survival
+- survminer
 
 ---
 
-## Reproducibility
-The analysis is fully reproducible using the provided R script:
-
-```r
-source("km_analysis.R")
